@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Event from "./Event";
 import { TABS } from "../lib/tabs";
+import TabItems from "./TabItems";
 const TABS_KEYS = Object.keys(TABS);
 
 export default function Devices() {
@@ -93,10 +93,13 @@ export default function Devices() {
             id={`panel_${key}`}
             aria-labelledby={`tab_${key}`}
           >
-            <ul className="section__panel-list">
+            {/* <ul className="section__panel-list">
               {TABS[key].items.map((item, index) => (
                 <Event key={index} {...item} />
               ))}
+            </ul> */}
+            <ul className="section__panel-list">
+              <TabItems items={TABS[key].items} />
             </ul>
           </div>
         ))}
