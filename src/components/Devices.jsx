@@ -15,21 +15,23 @@ export default function Devices() {
       initedRef.current = true;
       setActiveTab(new URLSearchParams(location.search).get("tab") || "all");
     }
-  }, [activeTab, setActiveTab]);
+  }, [activeTab]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const scroller = currentTabRef.current;
+      const scrollerWidth = scroller ? scroller.scrollWidth : 0;
+
+      const newHasRightScroll = scrollerWidth > ref.current.offsetWidth;
+      if (newHasRightScroll !== hasRightScroll) {
+        setHasRightScroll(newHasRightScroll);
+      }
+    }, 0);
+  }, [activeTab, hasRightScroll]);
 
   const onSelectInput = (event) => {
     setActiveTab(event.target.value);
   };
-
-  useEffect(() => {
-    const scroller = currentTabRef.current;
-    const scrollerWidth = scroller ? scroller.scrollWidth : 0;
-
-    const newHasRightScroll = scrollerWidth > ref.current.offsetWidth;
-    if (newHasRightScroll !== hasRightScroll) {
-      setHasRightScroll(newHasRightScroll);
-    }
-  });
 
   const onArrowCLick = () => {
     const scroller = currentTabRef.current;
