@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Header() {
   let [expanded, setExpanded] = useState(false);
