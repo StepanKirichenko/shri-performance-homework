@@ -93,11 +93,6 @@ export default function Devices() {
             id={`panel_${key}`}
             aria-labelledby={`tab_${key}`}
           >
-            {/* <ul className="section__panel-list">
-              {TABS[key].items.map((item, index) => (
-                <Event key={index} {...item} />
-              ))}
-            </ul> */}
             <ul className="section__panel-list">
               <TabItems items={TABS[key].items} />
             </ul>
